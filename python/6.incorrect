@@ -10,10 +10,11 @@ def findSumOfSquares(MAX_NUMBER):
 
 
 def findSquareOfSum(MAX_NUMBER):
-    sum = MAX_NUMBER*MAX_NUMBER+1/2  #Guassian summation formula
+    sum = (MAX_NUMBER*MAX_NUMBER+1)/2  #Guassian summation formula
     return sum*sum
 
 sum = findSumOfSquares(MAX_NUMBER)
 square = findSquareOfSum(MAX_NUMBER)
-
+print sum
+print square
 print square-sum

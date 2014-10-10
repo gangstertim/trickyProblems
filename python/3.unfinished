@@ -1,3 +1,5 @@
+#What is the largest prime factor of the number 600851475143 ?
+
 #toFactor = 6008514751430
 toFactor  = 1008080080
 factors = [1]
