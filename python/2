@@ -1,0 +1,17 @@
+def fib(first, second, ans): 
+    next = first + second
+    ans.append(next)
+    if next < 4000000:
+        return fib(second,next,ans)
+    else:
+        return ans
+
+ans = fib(1,2,[1,2])
+
+sum = 0
+
+for i in ans:
+    if not i%2:
+        sum+=i
+        
+print sum

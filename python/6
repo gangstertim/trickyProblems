@@ -1,0 +1,19 @@
+#Find difference between the sum of the squares of the first one hundred natural numbers and the square of the sum
+
+MAX_NUMBER = 100
+
+def findSumOfSquares(MAX_NUMBER):
+    sum = 0
+    for i in range(MAX_NUMBER):
+        sum+=(i*i)
+    return sum
+
+
+def findSquareOfSum(MAX_NUMBER):
+    sum = MAX_NUMBER*MAX_NUMBER+1/2  #Guassian summation formula
+    return sum*sum
+
+sum = findSumOfSquares(MAX_NUMBER)
+square = findSquareOfSum(MAX_NUMBER)
+
+print square-sum

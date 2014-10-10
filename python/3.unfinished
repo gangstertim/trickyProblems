@@ -1,0 +1,15 @@
+#toFactor = 6008514751430
+toFactor  = 1008080080
+factors = [1]
+
+def findSmallestFactor(toFactor):
+    for i in range(factors[-1], toFactor):
+        if not toFactor%i and i !=1:
+            factors.append(i)
+            findSmallestFactor(toFactor/i)
+            break
+    
+
+findSmallestFactor(toFactor)
+
+print factors

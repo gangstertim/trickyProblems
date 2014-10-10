@@ -1,0 +1,33 @@
+#What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+MAX_NUMBER = 20
+buckets = [0] * MAX_NUMBER
+product = 1
+
+def test(toTest):
+    for i in range(1, MAX_NUMBER):
+        if toTest%i:
+            return false
+    else: return true 
+
+def getPrimeFactorizations(num):
+    primes = []
+    currentProduct = 1
+    i=2
+    while currentProduct!=num:
+        if not (num/currentProduct)%i:
+            primes.append(i)
+            currentProduct*=i
+        else: 
+            i+=1
+    return primes
+
+for i in range (1,MAX_NUMBER):
+    factors =  getPrimeFactorizations(i)
+    for f in factors:
+       if buckets[f] < factors.count(f):
+           buckets[f] = factors.count(f)
+for i, b in enumerate(buckets):
+    product*=i**b
+
+print product
