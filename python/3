@@ -1,0 +1,18 @@
+#What is the largest prime factor of the number 600851475143 ?
+
+#TO_FACTOR = 6008514751430
+TO_FACTOR =  6008514751430
+
+def getLargestPrime(toFactor, curr, currProd):
+    while 1:
+        if toFactor%curr:
+            curr+=1
+        else:
+            currProd*=curr
+            print "{0}, {1}".format(curr, currProd)
+            if currProd == toFactor or currProd == TO_FACTOR:
+                return curr
+            else:
+                return getLargestPrime(toFactor/curr, curr, currProd)
+
+print getLargestPrime(TO_FACTOR, 2, 1)

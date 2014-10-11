@@ -1,3 +1,16 @@
 #What is the 10001st prime number?
 
+NTH_PRIME = 10001
+curr_prime = 1
+curr = 1
 
+def isPrime(num):
+    #do something
+    return true;
+
+while not curr_prime == NTH_PRIME
+    curr+=1
+    if isPrime(curr):
+        curr_prime+=1
+
+print curr
