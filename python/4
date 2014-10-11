@@ -1,0 +1,26 @@
+#Find the largest palindrome made from the product of two 3-digit numbers
+
+largest_palindrome = 0
+
+def isPalindrome(num):
+    numArr = [int(d) for d in str(num)]
+    if numArr == numArr[::-1]:
+        return True
+    else: 
+        return False
+
+def generateProducts():
+    products = []
+    for i in range(100,999):
+        for j in range(i,999):
+            products.append(i*j)
+    return products
+
+products = generateProducts()
+for p in products:
+    if isPalindrome(p) and p > largest_palindrome:
+        print p
+        largest_palindrome = p
+
+    
+
