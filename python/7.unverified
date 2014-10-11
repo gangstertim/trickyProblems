@@ -1,0 +1,20 @@
+#What is the 10001st prime number?
+
+NTH_PRIME = 10001
+primes = [2]
+curr_prime = 1
+curr = 1
+
+def isPrime(num):
+    for p in primes:
+        if not num%p:
+            return False
+    return True
+
+while not curr_prime == NTH_PRIME:
+    curr+=2
+    if isPrime(curr):
+        print curr
+        curr_prime+=1
+        primes.append(curr)
+        
