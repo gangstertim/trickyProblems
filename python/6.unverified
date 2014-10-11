@@ -4,7 +4,7 @@ MAX_NUMBER = 100
 
 def findSumOfSquares(MAX_NUMBER):
     sum = 0
-    for i in range(MAX_NUMBER):
+    for i in range(MAX_NUMBER+1):
         sum+=(i*i)
     return sum
 
@@ -15,6 +15,4 @@ def findSquareOfSum(MAX_NUMBER):
 
 sum = findSumOfSquares(MAX_NUMBER)
 square = findSquareOfSum(MAX_NUMBER)
-print sum
-print square
 print square-sum
