@@ -1,0 +1,22 @@
+#The sum of the primes below 10 is 2 + 3 + 5 + 7 is 17.
+
+#Find the sum of all the primes below two million.
+import math
+
+MAX = 2000000
+maxToCheck = int(math.sqrt(MAX))
+primes = [2,3,5,7]
+
+for i in range(11, MAX, 2):
+    isPrime = True
+    #because we increment by two, no need to check 2 
+    #primes larger than the square root of MAX will not be factors of subsequent primes
+    for p in primes[1:maxToCheck]:
+        if not i%p:
+            isPrime = False
+            break
+    if isPrime:
+        primes.append(i)
+
+print primes
+print sum(primes)
