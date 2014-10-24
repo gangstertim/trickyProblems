@@ -1,0 +1,31 @@
+#  Which starting number, under one million, produces the largest chain given the following rules?
+#    n -> n/2 (n is even)
+#    n -> 3n+1 (n is odd)
+
+MAX_STARTING_NUMBER = 1000000
+lengthTable = [None] * (MAX_STARTING_NUMBER+1)
+maxLength = 1
+maxNumber = 1
+
+def getLengthOfChain(curr):
+    length = 1
+    while (curr != 1):
+        if curr < MAX_STARTING_NUMBER and lengthTable[curr]:
+            return lengthTable[curr]+length-1
+        else:
+            length+=1
+            if (curr%2):   #n is odd
+                curr=3*curr+1
+            else:
+                curr/=2
+    return length
+
+for i in range (1, MAX_STARTING_NUMBER+1):
+    l =  getLengthOfChain(i)
+    lengthTable[i] = l
+    if l > maxLength:
+        maxLength = l
+        maxNumber = i
+
+print maxLength
+print maxNumber

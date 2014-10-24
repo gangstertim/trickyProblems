@@ -19,8 +19,6 @@ def generateProducts():
 products = generateProducts()
 for p in products:
     if isPalindrome(p) and p > largest_palindrome:
-        print p
-        largest_palindrome = p
-
-    
+        largest_palindrome = p    
+print p
 

@@ -14,7 +14,7 @@ def isPrime(num):
 while not curr_prime == NTH_PRIME:
     curr+=2
     if isPrime(curr):
-        print curr
         curr_prime+=1
         primes.append(curr)
-        
+
+print primes[10000]
