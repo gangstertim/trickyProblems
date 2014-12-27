@@ -1,0 +1,15 @@
+# what is the sum of the digits of the number 2^1000
+
+
+
+def sumDigits(num):
+    arr = []
+    sum = 0
+    while (num > 0):
+        arr.append(num%10)
+        num/=10
+    for a in arr:
+        sum+=a
+    return sum
+
+print sumDigits(2**1000)

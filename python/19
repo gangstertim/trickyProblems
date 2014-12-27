@@ -1,0 +1,43 @@
+#How many sundays fell on the first of the month during the 20th century (1 Jan 1901 - 31 Dec 2000)
+#Intuition: 14 types of year (7 days to start year, leap & non-leap)
+#           Find number of sundays on first of month in each year & how many of each type
+# Type 0 starts on Monday, non leap
+# Type 1 => Tues, non-leap...
+# Type 7 => Monday, leap
+# Type 8 => Tues, leap, ...
+
+SUNDAYS_PER_TYPE = [0] * 14
+MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+MONTH_DAYS_LEAP = MONTH_DAYS[:]
+MONTH_DAYS_LEAP[1] = 29
+
+
+def countSundays(type):  #int   0-13    
+    numFirstSundays = 0
+    first = type%7 #first day of current month
+    days = MONTH_DAYS if type < 7 else MONTH_DAYS_LEAP
+    for i in range(0, 12):
+        if first==6:
+            numFirstSundays+=1
+        first = (first + days[i])%7
+    return numFirstSundays
+
+def getNextType(type, year):
+    if not year%4:
+        if not year%100:
+            if not year%400:
+                return (type+2)%7
+            else: return (type+1)%7
+        else: return (type+2)%7
+    else: return (type+1)%7
+
+sum = 0
+type = 1
+for i in range(1901, 2001):
+    sum+=countSundays(type)
+    type = getNextType(type, i)
+    
+
+print i
+print type
+print sum

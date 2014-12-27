@@ -1,0 +1,31 @@
+#Find 1,000,000th lexicographic permutation of the digits 0-9
+
+#Idea: the number of permutations of n discrete digits can be found by n!
+#ie, three digits have 3! => 6 possible permutations
+
+import math
+
+TARGET = 1000000
+DIGITS = 10
+
+result = [0]*10
+curr = 10
+
+while (TARGET > 0 and curr >= 0): #end target should be 0
+    if (TARGET-math.factorial(curr) > 0):
+        TARGET-=math.factorial(curr)
+        result[10-curr]+=1
+    else:
+        curr-=1
+
+output = [-1]*10
+index = 0
+
+print result
+for r in result:
+    while (r in output):
+        r+=1
+    output[index] = r
+    index+=1
+
+print output

@@ -1,0 +1,31 @@
+#find first term in fibonnacci sequence to contain 1000 digits
+#challenge: maximum recursion depth seems to be around 1000 :(
+
+def fib(first, second, term):
+    if term >= 800:
+        return 0, first, second, term
+    else:
+        term+=1
+        next = first + second
+        if numDigits(next) < 250:
+            return fib(second,next, term)
+        else:
+            return second, term
+
+
+def numDigits(num):
+    result = 1;
+    while (num/10 > 1):
+        num/=10
+        result+=1
+    return result
+
+term = 0
+ans = fib(1,1,1)
+while not ans[0]:
+    term += ans[3]
+    ans = fib(ans[1],ans[2],0)
+
+print ans
+print term+ans[1]
+

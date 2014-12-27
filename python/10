@@ -18,5 +18,4 @@ for i in range(11, MAX, 2):
     if isPrime:
         primes.append(i)
 
-print primes
 print sum(primes)
