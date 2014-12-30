@@ -1,0 +1,12 @@
+#Find the sum of the digits in the number 100!
+
+import math
+
+sum = 0
+prod =  math.factorial(100)
+
+while prod > 0:
+    sum+= prod%10
+    prod/=10
+
+print sum

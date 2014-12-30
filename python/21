@@ -1,0 +1,19 @@
+#Evaluate the sum of all the amicable numbers under 10000.
+import operator
+
+#calculates the sum of proper divisors of n
+def d(n):
+    def prod(arr):
+        return reduce(operator.mul, arr, 1)
+
+    curr = n
+    i = 2
+    divisors = []
+    while prod(divisors) != n:
+        if not curr%i:
+            divisors.append(i)
+            for x in d(n/i):
+                divisors.append(x)
+        i+=1
+    return divisors
+
